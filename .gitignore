@@ -1,0 +1,8 @@
+/env
+/__pycache__
+*.swp
+*short_sentences.txt
+/google-cloud-sdk
+.DS_Store
+yhack_env_var.json
+google-cloud-sdk

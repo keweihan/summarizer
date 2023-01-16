@@ -1,0 +1,34 @@
+We wanted to make something accessible to everyone that implemented cool API and ML models. 
+After brainstorming ideas, we settled on something that would help us in our day-to-day lives: a bot that could record meetings, conversations, and lectures; a bot that can even take notes and summarize passages! 
+Tehuantepec got its name after a glitchy run of speech to text, sentence filtering, and sentence paraphrasing. 
+We think this is just the starting point of a cool idea that will only get better from here.
+Tehuantepec transcribes speech real time to text via a PC microphone. 
+When the dialog ends, the speech gets input into a sentence filtering model. 
+This model ranks sentence importance and removes sentences deemed not important to the conversation. 
+These filtered sentences then get passed into a paraphraser model that replaces the sentence with a new--hopefully shorter--one that can even include new vocabulary.
+We split the project into 3 modules: speech-to-text, sentence filtering, and sentence paraphrasing. 
+For speech-to-text, we used a bidirectional stream between PC and Google API. 
+The audio gets sent to Google cloud's speech-to-text API and outputs are chosen based off how stable and confident the model is in the result. 
+For sentence filtering, we used Google's pre-trained natural language API to implement tf-idf. 
+Tf-idf ranks sentence importance and filters out the least relevant words. 
+For sentence paraphrasing, we wrote an RNN encoder-decoder neural network with an additional attention vector that takes in sentences and outputs a paraphrased version. 
+The encoder neural network takes in a sentence of words and changes GRU-RNN hidden state cells. 
+The decoder neural network takes the previous state as input and outputs the most likely first word. 
+Using this word along with hidden state info, the decoder outputs the following consecutive words. 
+The neural networks were written with Keras, Tensorflow, and tutorial help. 
+For speech-to-text, we ran into issues with transcription quality and transcription delay from background noise and weak WiFi signals. 
+For sentence filtering, we had to learn Python to utilize Google cloud tools. 
+For sentence paraphrasing, understanding what the neural networks are doing, trying to get an output, and formatting data were all huge challenges. 
+At first, the model would only output commas or the word 'the'. 
+Each iteration took hours to run (because we couldn't get Google cloud GPU to work and had to run local), and the only way to shorten run time was to sacrifice accuracy. 
+Finding a sweet point between run-time and accuracy was incredibly difficult.
+We got speech-to-text to work fairly quickly which gave us motivation. It was cool to see our sentence filter produce coherent, shortened passages. 
+Although to the sentence paraphrasing was not very accurate, getting an output and understanding the recurrent neural networks was a huge success. 
+Getting some output--even not accurate--finally let me work on improving the model and get a sense of how the model worked. 
+We learned Google cloud API, including speech-to-text, natural language processing, and Tensorflow/ Keras. 
+We learned how to divide a project up and still collaborate to reach an end goal. 
+We learned about neural networks, gated recurrent neural networks, industry standards for paraphrasing (and translation), and data processing/ formatting for neural networks.
+We want to raise accuracy at each step. For speech-to-text, we want to improve sound quality and transcription accuracy. 
+For sentence filtering, we want to use more sophisticated algorithms. 
+For sentence paraphrasing, we want to continue the progress of the neural network, adding in pointer generation so new vocabulary not from the source document can be generated. 
+Right now, the model focuses on text generation, but another neural network (typically reinforcement learning or supervised) needs to be used to evaluate the quality of paraphrasing (and possibly length) to better fix the parameter values instead of cross-entropy loss.

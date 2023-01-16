@@ -1,0 +1,18 @@
+We wanted to make something to everyone that implemented API and ML models. 
+Tehuantepec got its name after a run of speech to text, sentence filtering, and sentence paraphrasing. 
+This model ranks sentence importance and removes sentences deemed not to conversation. 
+We split project into 3 modules : speech - to - text, sentence filtering, and sentence paraphrasing. 
+- idf ranks sentence importance and filters out least words. 
+The networks were written with Keras, Tensorflow, and help. 
+For sentence filtering, we had to learn Python to utilize Google cloud tools. 
+For sentence paraphrasing, understanding what networks are doing, trying to get an output, and formatting data were all challenges. 
+At first, model would only output commas or word ' '. 
+Each iteration took hours to run (because we could n't get Google cloud GPU to work and had to run), and way to shorten run time was to sacrifice accuracy. 
+We got speech - to - text to work fairly quickly which gave us motivation. 
+It was to see our sentence filter produce, shortened passages. 
+We learned Google cloud API, including speech - to - text, language processing, and Tensorflow / Keras. 
+We learned how to divide a project up and still collaborate to reach an end goal. 
+We want to raise accuracy at each step. 
+For sentence filtering, we want to use more algorithms. 
+For sentence paraphrasing, we want to continue progress of network, adding in pointer generation so vocabulary not from source document can be generated. 
+Right now, model focuses on text generation, but another network (typically reinforcement learning or) needs to be used to evaluate quality of paraphrasing (and possibly length) to better fix parameter values instead of loss. 
